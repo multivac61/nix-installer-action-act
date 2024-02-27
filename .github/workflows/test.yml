@@ -1,0 +1,12 @@
+on:
+  pull_request:
+  push:
+
+jobs:
+  lints:
+    name: Build
+    runs-on: [macos-14, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - run: nix build
